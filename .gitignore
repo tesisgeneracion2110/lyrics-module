@@ -34,3 +34,5 @@ resources/keystore/
 
 ### PyCharm ###
 venv/
+__pycache__/main.cpython-37.pyc
+__pycache__/test_main.cpython-37-pytest-6.2.2.pyc
