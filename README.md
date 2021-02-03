@@ -1,6 +1,6 @@
 # lyrics-module
 
-_Este repositorio contiene el listado de canciones a usar para el componente de generación de texto (Letras de canciones)_
+_Este repositorio contiene el listado de canciones a usar para el componente de generación de texto (Letras de canciones)!!!_
 
 ## Listado 🚀
 
