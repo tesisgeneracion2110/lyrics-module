@@ -4,9 +4,56 @@ _Este repositorio contiene el listado de canciones a usar para el componente de 
 
 ## Listado 🚀
 
-1. Canción 1
-2. Canción 2
-3. Canción x
+1- La mujer traiciona - Lenny Tavárez
+2- Aparentemente 2 - arcangel
+3- Se Te Nota  - Lele Pons y Guaynaa
+4- don don - kendo kaponi
+5- Mi Cuarto - jerry di 
+6- amantes y amigos - arcangel
+7- Gatita Gangster - cazuu y ñengo flow
+8-Pa Los Gustos Los Colores  - khea
+9- no me juzguez - farruko
+10- otra noche - kevin roldan 
+11- olvidando - darell 
+12- lo peor de mi - lyanno
+13- que mal te fue - natti nastasha
+14- payaso - arangel
+15- Échalo Pa' Ca - darell
+16- nada - danna paola
+17- no me llama - myke towers
+18 - no me acostumbro - wisin
+19- jeans - justin quiles
+20-  a mi tambien - tainy
+21- entre tu y yo - chema rivas 
+22-diosa - myke towers
+23-bonita - jeeiph
+24- baby soltera - kevin roldan
+25- cielo a un diablo - maluma
+26 - miedito o que - ovy on the drums 
+27- locura - ali y el dandee
+28- pase lo que pase - sael
+29- travesuras - nio garcia
+30- dile a el - rauw alejandro 
+31- desnudarte - jay wheeler
+32- hasta que dios diga - anuel aa
+33- dembow - yandel 
+34- mala costumbre - manuel turizo
+35- de cora - j balvin 
+36- linda - dalex
+37- antes - anuel aa y ozuna 
+38- singapur - el alfa
+39- la nota - manuel turizo
+40- fantasia sexual - lunay 
+41- la jeepeta - nio garcia
+42- mi niña - los legendarios
+43-mas de la una - maluma 
+44- jockey - lenny tavarez
+45- no te enamores - milly
+46- ponte pa mi - justin quiles
+47- la luz - j balvin 
+48- enchule - rauw alejandro 
+49- vete pal carajo - jay wheeler
+50-pasarela - dj nelson
 51. Una Locura - Ozuna
 52. Bichota - Karol G
 53. Bandido - Mike Towers
