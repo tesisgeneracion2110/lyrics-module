@@ -1,4 +1,5 @@
 from src.main import index, add
+import pytest
 
 def test_index():
     assert index() == "Hello, world!"
