@@ -23,7 +23,7 @@ def delete_all_brackets(content):
     return result
 
 
-file = open("../lyrics.txt", "r", encoding="utf8")
+file = open("lyrics.txt", "r", encoding="utf8")
 file_content = file.read()
 lyrics = delete_empty_lines(file_content)
 lyrics = delete_square_brackets_lines(lyrics)
