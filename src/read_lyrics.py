@@ -1,6 +1,5 @@
 import re
 
-
 def delete_empty_lines(content):
     lines = content.split("\n")
     non_empty_lines = [line for line in lines if line.strip() != ""]
@@ -23,11 +22,9 @@ def delete_all_brackets(content):
     result = re.sub(r"\([^()]*\)", "", content)
     return result
 
-
-def to_array(content):
-    array = content.split("\n\n")
+def to_array(lyrics):
+    array = lyrics.split("\n\n")
     return array
-
 
 file = open("lyrics.txt", "r", encoding="utf8")
 file_content = file.read()
