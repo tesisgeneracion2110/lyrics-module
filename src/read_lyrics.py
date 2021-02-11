@@ -44,5 +44,4 @@ f = open("lyrics3.txt", "w", encoding="utf8")
 f.write(lyrics_three)
 f.close()
 
-print('Hi')
 lyrics_array = to_array(lyrics_one)
