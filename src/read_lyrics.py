@@ -22,7 +22,7 @@ def delete_square_brackets_lines(content):
     return content
 
 
-def delete_all_brackets(content):
+def delete_parentheses(content):
     result = re.sub(r"\([^()]*\)", "", content)
     return result
 
@@ -32,16 +32,21 @@ def to_array(string):
     return array
 
 
-file = open("lyrics.txt", "r", encoding="utf8")
-file_content = file.read()
-lyrics = delete_empty_lines(file_content)
-lyrics = delete_square_brackets_lines(lyrics)
-lyrics_two = delete_all_brackets(lyrics)
-f = open("lyrics1.txt", "w", encoding="utf8")
-f.write(lyrics)
-f.close()
-f = open("lyrics2.txt", "w", encoding="utf8")
-f.write(lyrics_two)
-f.close()
+def create_lyrics_files():
+    file = open("lyrics.txt", "r", encoding="utf8")
+    file_content = file.read()
+    lyrics_no_empty_lines = delete_empty_lines(file_content)
+    lyrics_parentheses = delete_square_brackets_lines(lyrics_no_empty_lines)
+    lyrics_no_parentheses = delete_parentheses(lyrics_parentheses)
+    f = open("lyrics_parentheses.txt", "w", encoding="utf8")
+    f.write(lyrics_parentheses)
+    f.close()
+    f = open("lyrics_no_parentheses.txt", "w", encoding="utf8")
+    f.write(lyrics_no_parentheses)
+    f.close()
+    return lyrics_parentheses
+
+
+lyrics = create_lyrics_files()
 lyrics_array = to_array(lyrics)
 print(lyrics_array)

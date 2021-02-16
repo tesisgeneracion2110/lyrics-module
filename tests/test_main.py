@@ -1,8 +1,10 @@
 from src.main import index, add
 import pytest
 
+
 def test_index():
     assert index() == "Hello, world!"
+
 
 @pytest.mark.parametrize('x, y, result', [
     (10, 10, 20),
