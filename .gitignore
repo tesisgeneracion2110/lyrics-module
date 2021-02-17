@@ -46,3 +46,12 @@ sample/__pycache__/main.cpython-37.pyc
 sample/__pycache__/read_lyrics.cpython-37.pyc
 tests/__pycache__/test_main.cpython-37-pytest-6.2.2.pyc
 tests/__pycache__/test_read_lyrics.cpython-37-pytest-6.2.2.pyc
+sample.egg-info/dependency_links.txt
+sample.egg-info/dependency_links.txt
+sample.egg-info/PKG-INFO
+sample.egg-info/requires.txt
+sample.egg-info/SOURCES.txt
+sample.egg-info/top_level.txt
+sample.egg-info/dependency_links.txt
+sample.egg-info/SOURCES.txt
+tests/__pycache__/context.cpython-37.pyc

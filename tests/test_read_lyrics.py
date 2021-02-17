@@ -1,5 +1,8 @@
-import pytest
+import sys
+sys.path.append('.\\sample')
+
 from sample.read_lyrics import delete_empty_lines
+import pytest
 
 
 @pytest.mark.parametrize('data, result', [
