@@ -1,5 +1,5 @@
 import pytest
-from src.read_lyrics import delete_empty_lines
+from sample.read_lyrics import delete_empty_lines
 
 
 @pytest.mark.parametrize('data, result', [

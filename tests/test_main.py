@@ -1,4 +1,4 @@
-from src.main import index, add
+from sample.main import index, add
 import pytest
 
 

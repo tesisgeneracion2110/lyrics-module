@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='src',
+    name='sample',
     version='1.0.0',
     install_requires=[
         'pytest'

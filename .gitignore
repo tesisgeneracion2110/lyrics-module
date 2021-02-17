@@ -42,7 +42,7 @@ src.egg-info/PKG-INFO
 src.egg-info/requires.txt
 src.egg-info/SOURCES.txt
 src.egg-info/top_level.txt
-src/__pycache__/main.cpython-37.pyc
-src/__pycache__/read_lyrics.cpython-37.pyc
+sample/__pycache__/main.cpython-37.pyc
+sample/__pycache__/read_lyrics.cpython-37.pyc
 tests/__pycache__/test_main.cpython-37-pytest-6.2.2.pyc
 tests/__pycache__/test_read_lyrics.cpython-37-pytest-6.2.2.pyc
