@@ -36,8 +36,7 @@ jobs:
     - name: Test with pytest
       run: |
         python setup.py develop
-        coverage run -m pytest
-        coverage xml
+        pytest
     - name: Analyze with SonarCloud
       uses: sonarsource/sonarcloud-github-action@master
       env:
