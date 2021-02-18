@@ -1,3 +1,4 @@
+import sys
 import re
 
 
@@ -32,21 +33,29 @@ def to_array(string):
     return array
 
 
-def create_lyrics_files():
-    file = open("lyrics.txt", "r", encoding="utf8")
+def create_lyrics_files(file_name):
+    try:
+        file = open(file_name, "r", encoding="utf8")
+    except IOError:
+        print('Error: File "', file_name, '" does not appear to exist.')
+        return -1
     file_content = file.read()
     lyrics_no_empty_lines = delete_empty_lines(file_content)
     lyrics_parentheses = delete_square_brackets_lines(lyrics_no_empty_lines)
     lyrics_no_parentheses = delete_parentheses(lyrics_parentheses)
-    f = open("lyrics_parentheses.txt", "w", encoding="utf8")
-    f.write(lyrics_parentheses)
-    f.close()
-    f = open("lyrics_no_parentheses.txt", "w", encoding="utf8")
-    f.write(lyrics_no_parentheses)
-    f.close()
+    file_parentheses = open("lyrics_parentheses.txt", "w", encoding="utf8")
+    file_parentheses.write(lyrics_parentheses)
+    file_parentheses.close()
+    file_no_parentheses = open("lyrics_no_parentheses.txt", "w", encoding="utf8")
+    file_no_parentheses.write(lyrics_no_parentheses)
+    file_no_parentheses.close()
     return lyrics_parentheses
 
 
-lyrics = create_lyrics_files()
-lyrics_array = to_array(lyrics)
-print(lyrics_array)
+args = sys.argv
+if len(args) == 2:
+    lyrics = create_lyrics_files(args[1])
+    if lyrics != -1:
+        lyrics_array = to_array(lyrics)
+else:
+    print('Error: Incorrect arguments number')
