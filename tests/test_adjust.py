@@ -1,4 +1,4 @@
-from sample.read_lyrics import delete_empty_lines
+import sample.adjust
 import pytest
 
 
@@ -8,4 +8,4 @@ import pytest
     ('', '')
 ])
 def test_delete_empty_lines(data, result):
-    assert delete_empty_lines(data) == result
+    assert sample.adjust.delete_empty_lines(data) == result
