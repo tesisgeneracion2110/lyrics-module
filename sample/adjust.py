@@ -52,10 +52,49 @@ def create_lyrics_files(file_name):
     return lyrics_parentheses
 
 
-args = sys.argv
-if len(args) == 2:
-    lyrics = create_lyrics_files(args[1])
-    if lyrics != -1:
-        lyrics_array = to_array(lyrics)
-else:
-    print('Error: Incorrect arguments number')
+def parse(file_name):
+    valid_chars = ['a', 'á', 'b', 'c', 'd', 'e', 'é', 'f', 'g', 'h', 'i', 'í', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'ó',
+                   'p', 'q', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'x', 'y', 'z', '.', '¿', '?', ',', '\'', ':', '¡', '!',
+                   ';', '"', '\n']
+
+    # load ascii text and covert to lowercase
+    raw_text = open(file_name, "r", encoding="utf8").read().lower().replace("--", ";")
+
+    wordlist = []
+    s = ""
+
+    # split the raw text into valid "words" (punctuation are words in this case)
+    for i in range(0, len(raw_text)):
+        x = i
+        # space or return -> store word
+        # or raw_text[x] == '\n'
+        if raw_text[x] == ' ':
+            if len(s) > 0:
+                wordlist.append(s)
+            s = ""
+        # include only valid characters
+        elif raw_text[x] in valid_chars:
+            if raw_text[x].isalpha():
+                s += raw_text[x]
+            else:
+                # for I'll, don't, alice's, etc...
+                especial_valid_chars = ['s', 't', 'm', 'l']
+                if raw_text[x] == '\'' and raw_text[x + 1] in especial_valid_chars:
+                    s += raw_text[x]
+                else:
+                    if len(s) > 0:
+                        wordlist.append(s)
+                    wordlist.append(raw_text[x])
+                    s = ""
+    return wordlist
+
+
+print(parse("../lstm/lyrics_no_parentheses.txt"))
+# args = sys.argv
+# if len(args) == 2:
+#    lyrics = create_lyrics_files(args[1])
+#   if lyrics != -1:
+#       lyrics_array = to_array(lyrics)
+#        lyrics_parse = parse(lyrics_array)
+# else:
+#   print('Error: Incorrect arguments number')
