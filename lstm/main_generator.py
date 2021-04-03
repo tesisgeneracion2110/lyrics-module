@@ -1,5 +1,7 @@
 import train
 import lyric_generator as generator
+import sample.adjust as adjust
+import constant
 
 import gc
 
@@ -18,7 +20,9 @@ model_generation = generator.generation(model)
 random_point = generator.random_point(wordlist)
 generated = random_point[0]
 sentence = random_point[1]
-print('generated: ', generated)
 prediction = generator.prediction(model_generation, chars_sorted, char_indices, indices_char, generated, sentence)
+
+filename = constant.PATH_LYRICS_GENERATED + constant.FILENAME_LYRICS_GENERATED
+adjust.generated_lyric(filename, prediction)
 
 gc.collect()

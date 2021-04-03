@@ -38,8 +38,7 @@ def prediction(model, chars, char_indices, indices_char, generated, sentence):
         sentence = sentence[1:]
         sentence.append(next_char)
 
-        sys.stdout.write(" " + next_char)
-        sys.stdout.flush()
+    return generated
 
 
 def sample(predictions, temperature=1.0):

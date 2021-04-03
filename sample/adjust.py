@@ -92,6 +92,13 @@ def parse(file_name):
                     s = ""
     return wordlist
 
+
+def generated_lyric(filename, data):
+    file_no_parentheses = open(filename, "w", encoding="utf8")
+    file_no_parentheses.write(data)
+    file_no_parentheses.close()
+
+
 # args = sys.argv
 # if len(args) == 2:
 #    lyrics = create_lyrics_files(args[1])
