@@ -55,10 +55,14 @@ def create_lyrics_files(file_name):
 def parse(file_name):
     valid_chars = ['a', 'á', 'b', 'c', 'd', 'e', 'é', 'f', 'g', 'h', 'i', 'í', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'ó',
                    'p', 'q', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'x', 'y', 'z', '.', '¿', '?', ',', '\'', ':', '¡', '!',
-                   ';', '"', '\n']
+                   ';', '"', "\n"]
 
     # load ascii text and covert to lowercase
-    raw_text = open(file_name, "r", encoding="utf8").read().lower().replace("--", ";")
+    try:
+        raw_text = open(file_name, "r", encoding="utf8").read().lower().replace("--", ";")
+    except IOError:
+        print('Error: File "', file_name, '" does not appear to exist.')
+        return -1
 
     wordlist = []
     s = ""
@@ -88,8 +92,6 @@ def parse(file_name):
                     s = ""
     return wordlist
 
-
-print(parse("../lstm/lyrics_no_parentheses.txt"))
 # args = sys.argv
 # if len(args) == 2:
 #    lyrics = create_lyrics_files(args[1])
