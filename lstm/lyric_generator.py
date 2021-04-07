@@ -1,7 +1,7 @@
 from keras.optimizers import RMSprop
 
 import numpy as np
-import random
+import secrets
 import sys
 
 import constant
@@ -16,7 +16,8 @@ def generation(model):
 
 
 def random_point(wordlist):
-    start_index = random.randint(0, len(wordlist) - constant.MAX_LEN_CHARACTERS - 1)
+    max_range = len(wordlist) - constant.MAX_LEN_CHARACTERS - 1
+    start_index = secrets.randbelow(max_range)
     sentence = wordlist[start_index: start_index + constant.MAX_LEN_CHARACTERS]
 
     generated = ''
