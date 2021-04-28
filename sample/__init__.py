@@ -1,11 +1,24 @@
 import os
 from sample.lstm.main_generator import init_generator
 from flask import Flask, jsonify, send_from_directory
+from flask_swagger_ui import get_swaggerui_blueprint
 
 UPLOAD_DIRECTORY = "lstm/result/"
 if not os.path.exists(UPLOAD_DIRECTORY):
     os.makedirs(UPLOAD_DIRECTORY)
 api = Flask(__name__)
+
+
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "Seans-Python-Flask-REST-Boilerplate"
+    }
+)
+api.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 
 @api.route("/lyric")

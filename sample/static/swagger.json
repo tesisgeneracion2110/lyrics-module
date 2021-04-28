@@ -1,0 +1,79 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "API to generate file txt with reggaeton lyric",
+    "version": "1.0.0",
+    "title": "Lyric Generator",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Lyric Generator",
+      "description": "API to generate file txt with reggaeton lyric"
+    }
+  ],
+  "paths": {
+    "/lyric": {
+      "get": {
+        "tags": [
+          "generate lyric"
+        ],
+        "summary": "Returns path to lyric file",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/lyric/file/<path:path>": {
+      "parameters": [
+        {
+          "name": "path",
+          "in": "path",
+          "required": true,
+          "description": "path to download txt lyric file",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "generate lyric"
+        ],
+        "summary": "Download the file with tle generated lyric",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "path",
+            "required": true,
+            "description": "path to txt file",
+            "schema": {
+              "$ref": "#/components/schemas/path"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "path": {
+        "type": "string",
+        "format": "string"
+      }
+    }
+  }
+}
