@@ -2,9 +2,8 @@ from keras.optimizers import RMSprop
 
 import numpy as np
 import secrets
-import sys
 
-import constant
+from sample.lstm import constant
 
 
 def generation(model):

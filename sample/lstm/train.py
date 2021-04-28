@@ -9,15 +9,15 @@ from keras.optimizers import RMSprop
 
 import numpy as np
 
-import sample.adjust as adjust
-import constant
+from sample.adjust import parse
+from sample.lstm import constant
 
 sentences = []
 next_chars = []
 
 
 def manage_wordlist():
-    return adjust.parse(constant.FILENAME_LYRICS)
+    return parse(constant.FILENAME_LYRICS)
 
 
 def prepare_text_data(wordlist):
@@ -25,7 +25,7 @@ def prepare_text_data(wordlist):
     for i in range(0, len(wordlist) - constant.MAX_LEN_CHARACTERS, constant.STEPS_TRAINING):
         sentences.append(wordlist[i: i + constant.MAX_LEN_CHARACTERS])
         next_chars.append(wordlist[i + constant.MAX_LEN_CHARACTERS])
-    print('Number of sequences: ', len(sentences))
+
     return sorted(list(set(wordlist)))
 
 
@@ -36,12 +36,10 @@ def create_dictionaries(chars):
 
 
 def vectorization(chars, char_indices):
-    print('Vectorization...')
+
     x = np.zeros((len(sentences), constant.MAX_LEN_CHARACTERS, len(chars)), dtype=np.bool)
     y = np.zeros((len(sentences), len(chars)), dtype=np.bool)
 
-    # print('char_indices: ', char_indices)
-    # print('indices_char: ', indices_char)
     for i, sentence in enumerate(sentences):
         for t, char in enumerate(sentence):
             x[i, t, char_indices[char]] = 1
@@ -51,7 +49,7 @@ def vectorization(chars, char_indices):
 
 
 def prepare_model(length_chars):
-    print('build the model: a single LSTM')
+
     model = Sequential()
     model.add(LSTM(constant.UNITS_LSTM, input_shape=(constant.MAX_LEN_CHARACTERS, length_chars)))
     model.add(Dropout(0.2))
@@ -61,8 +59,7 @@ def prepare_model(length_chars):
 
 
 def build_model(model, x, y):
-    print()
-    print('-' * 50)
+
     optimizer = RMSprop(lr=0.01)
     model.compile(loss='categorical_crossentropy', optimizer=optimizer)
     filepath = constant.PATH_LYRICS_TRAINING + constant.FILENAME_LYRICS_TRAINING
