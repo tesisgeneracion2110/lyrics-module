@@ -46,7 +46,7 @@
       ],
       "get": {
         "tags": [
-          "generate lyric"
+          "get lyric"
         ],
         "summary": "Download the file with tle generated lyric",
         "parameters": [
@@ -66,10 +66,31 @@
           }
         }
       }
+    },
+    "/lyric/file/all": {
+      "get": {
+        "tags": [
+          "find all files"
+        ],
+        "summary": "Returns list of files",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "type": "array",
+              "files": {
+                "$ref": "#/components/schemas/file"
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "file" : {
+        "type": "string",
+        "format": "string"
+      },
       "path": {
         "type": "string",
         "format": "string"
