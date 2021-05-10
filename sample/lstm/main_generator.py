@@ -2,8 +2,46 @@ from sample.lstm.train import manage_wordlist, prepare_text_data, create_diction
 from sample.lstm.lyric_generator import generation, random_point, prediction
 import sample.adjust as adjust
 from sample.lstm import constant
+import re
 
 import gc
+
+
+def lyric_formatter(data):
+    lines = data.split("\n")
+    data_formatted = ""
+    print("Num lines: ", len(lines))
+    old_line = ""
+    for line in lines:
+        line_format = re.sub(r"[^a-zA-Z0-9áéíóúÁÉÍÓÚ]+", ' ', line).lstrip()
+        if line_format.isspace():
+            continue
+
+        line_format = old_line + line_format
+        old_line = ""
+        words = line_format.split(" ")
+        if len(words) < constant.MIN_LENGTH_LINE:
+            old_line = line_format
+            continue
+
+        elif len(words) < constant.MAX_LENGTH_LINE:
+            data_formatted += line_format + "\n"
+            continue
+
+        new_line = ""
+        for word_position in range(0, len(words)):
+            new_line += words[word_position] + " "
+            if (word_position != 0 and word_position % constant.MAX_LENGTH_LINE == 0) or word_position == len(words):
+                if not new_line.isspace():
+                    if word_position == len(words):
+                        old_line = new_line
+                        continue
+                    else:
+                        data_formatted += new_line.lstrip() + "\n"
+                new_line = ""
+
+    print("data_formatted: ", data_formatted)
+    return data_formatted
 
 
 def init_generator():
@@ -32,8 +70,11 @@ def init_generator():
         constant.FILE_INDEX += 1
 
     filename += str(constant.FILE_INDEX) + constant.FORMAT_LYRICS_GENERATED
-    adjust.generated_lyric(filename, predict)
-
+    data = lyric_formatter(predict)
+    adjust.generated_lyric(filename, data)
     gc.collect()
 
     return filename
+
+
+init_generator()

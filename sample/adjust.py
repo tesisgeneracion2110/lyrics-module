@@ -54,9 +54,10 @@ def create_lyrics_files(file_name):
 
 def parse(file_name):
     valid_chars = ['a', 'á', 'b', 'c', 'd', 'e', 'é', 'f', 'g', 'h', 'i', 'í', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'ó',
-                   'p', 'q', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'x', 'y', 'z', '.', '¿', '?', ',', '\'', ':', '¡', '!',
-                   ';', '"', "\n"]
+                   'p', 'q', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'x', 'y', 'z', '.', '¿', '?', ',', ':', '¡', '!', ';',
+                   "\n"]
 
+    print("hola")
     # load ascii text and covert to lowercase
     try:
         raw_text = open(file_name, "r", encoding="utf8").read().lower().replace("--", ";")
@@ -97,7 +98,6 @@ def generated_lyric(filename, data):
     file_no_parentheses = open(filename, "w", encoding="utf8")
     file_no_parentheses.write(data)
     file_no_parentheses.close()
-
 
 # args = sys.argv
 # if len(args) == 2:

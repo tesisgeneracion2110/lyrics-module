@@ -1,5 +1,5 @@
-FILENAME_LYRICS = "lstm/lyrics_no_parentheses.txt"
-PATH_LYRICS_TRAINING = "lstm/result/"
+FILENAME_LYRICS = "lyrics_no_parentheses.txt"
+PATH_LYRICS_TRAINING = "result/"
 FILENAME_LYRICS_TRAINING = "lyricsTraining.hdf5"
 # if max-len are change, the training should have best results?
 MAX_LEN_CHARACTERS = 10
@@ -10,11 +10,13 @@ ACTIVATION_LSTM = "softmax"
 UNITS_LSTM = 256
 BATCH_SIZE = 128
 EPOCHS = 1
-DIVERSITY = 0.2
-WORDS_RANGE = 400
-PATH_LYRICS_GENERATED = "lstm/result/"
+DIVERSITY = 1.0
+WORDS_RANGE = 600
+PATH_LYRICS_GENERATED = "result/"
 FILENAME_LYRICS_GENERATED = "lyric"
 FILE_INDEX = 0
 FORMAT_LYRICS_GENERATED = ".txt"
 MAX_FILE_INDEX = 10
+MAX_LENGTH_LINE = 8
+MIN_LENGTH_LINE = 5
 
