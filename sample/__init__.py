@@ -24,8 +24,7 @@ api.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 @api.route("/lyric")
 def generate_lyric():
     filename = init_generator()
-    response = [filename, "test"]
-    return jsonify(response)
+    return jsonify(filename)
 
 
 @api.route("/lyric/file/<path:path>")
@@ -46,6 +45,6 @@ def list_files():
 
 
 if __name__ == "__main__":
-    api.run(debug=True)
+    api.run(debug=True, port=5050)
 
 

@@ -57,7 +57,7 @@ def parse(file_name):
                    'p', 'q', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'x', 'y', 'z', '.', '¿', '?', ',', ':', '¡', '!', ';',
                    "\n"]
 
-    print("hola")
+    # print("hola")
     # load ascii text and covert to lowercase
     try:
         raw_text = open(file_name, "r", encoding="utf8").read().lower().replace("--", ";")

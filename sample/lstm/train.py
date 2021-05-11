@@ -17,7 +17,7 @@ next_chars = []
 
 
 def manage_wordlist():
-    return parse(constant.FILENAME_LYRICS)
+    return parse(constant.PATH_LYRICS + constant.FILENAME_LYRICS)
 
 
 def prepare_text_data(wordlist):

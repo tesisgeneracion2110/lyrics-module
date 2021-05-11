@@ -46,6 +46,7 @@ def lyric_formatter(data):
 
 def init_generator():
     wordlist = manage_wordlist()
+    # print("wordlist: ", wordlist)
     chars_sorted = prepare_text_data(wordlist)
 
     dictionaries = create_dictionaries(chars_sorted)
@@ -71,10 +72,8 @@ def init_generator():
 
     filename += str(constant.FILE_INDEX) + constant.FORMAT_LYRICS_GENERATED
     data = lyric_formatter(predict)
+    print("filename: ", filename)
     adjust.generated_lyric(filename, data)
     gc.collect()
 
-    return filename
-
-
-init_generator()
+    return constant.FILENAME_LYRICS_GENERATED + str(constant.FILE_INDEX) + constant.FORMAT_LYRICS_GENERATED

@@ -9,6 +9,7 @@ from sample.lstm import constant
 def generation(model):
     optimizer = RMSprop(lr=0.01)
     model_data = constant.PATH_LYRICS_TRAINING + constant.FILENAME_LYRICS_TRAINING
+    # print("model_data: ", model_data)
     model.load_weights(model_data)
     model.compile(loss='categorical_crossentropy', optimizer=optimizer)
     return model
