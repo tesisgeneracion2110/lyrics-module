@@ -2,9 +2,16 @@ from sample.lstm.train import manage_wordlist, prepare_text_data, create_diction
 from sample.lstm.lyric_generator import generation, random_point, prediction
 import sample.adjust as adjust
 from sample.lstm import constant
-import re
+from unicodedata import normalize
 
+import re
 import gc
+
+
+def normalize_text(text):
+    trans_tab = dict.fromkeys(map(ord, u'\u0301\u0308'), None)
+    text = normalize('NFKC', normalize('NFKD', text).translate(trans_tab))
+    return re.sub(r"[^a-zA-Z0-9 \nñ]", "", text)
 
 
 def lyric_formatter(data):
@@ -40,7 +47,7 @@ def lyric_formatter(data):
                         data_formatted += new_line.lstrip() + "\n"
                 new_line = ""
 
-    print("data_formatted: ", data_formatted)
+    # print("data_formatted: ", data_formatted)
     return data_formatted
 
 
@@ -72,8 +79,9 @@ def init_generator():
 
     filename += str(constant.FILE_INDEX) + constant.FORMAT_LYRICS_GENERATED
     data = lyric_formatter(predict)
+    data_normalize = normalize_text(data)
     print("filename: ", filename)
-    adjust.generated_lyric(filename, data)
+    adjust.generated_lyric(filename, data_normalize)
     gc.collect()
 
     return constant.FILENAME_LYRICS_GENERATED + str(constant.FILE_INDEX) + constant.FORMAT_LYRICS_GENERATED

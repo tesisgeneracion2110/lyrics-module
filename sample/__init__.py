@@ -45,6 +45,6 @@ def list_files():
 
 
 if __name__ == "__main__":
-    api.run(debug=True, port=5050)
+    api.run(debug=True, port=7000)
 
 

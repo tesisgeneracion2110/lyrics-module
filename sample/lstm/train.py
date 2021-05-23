@@ -1,11 +1,13 @@
 from __future__ import print_function
 
-from keras.models import Sequential
-from keras.layers import Dense, Activation
-from keras.layers import LSTM
-from keras.layers import Dropout
-from keras.callbacks import ModelCheckpoint
-from keras.optimizers import RMSprop
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Activation
+from tensorflow.keras.layers import LSTM
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.callbacks import ModelCheckpoint
+from tensorflow.keras import optimizers
+from tensorflow.keras.optimizers import RMSprop
+# from keras.optimizers import RMSprop
 
 import numpy as np
 

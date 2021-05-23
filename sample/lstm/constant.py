@@ -1,6 +1,6 @@
-PATH_LYRICS = "lstm/"
+PATH_LYRICS = "sample/lstm/"
 FILENAME_LYRICS = "lyrics_no_parentheses.txt"
-PATH_LYRICS_TRAINING = "lstm/result/"
+PATH_LYRICS_TRAINING = "sample/lstm/result/"
 FILENAME_LYRICS_TRAINING = "lyricsTraining2.hdf5"
 # if max-len are change, the training should have best results?
 MAX_LEN_CHARACTERS = 10
@@ -13,11 +13,11 @@ BATCH_SIZE = 128
 EPOCHS = 1
 DIVERSITY = 1.0
 WORDS_RANGE = 600
-PATH_LYRICS_GENERATED = "lstm/result/"
+PATH_LYRICS_GENERATED = "sample/lstm/result/"
 FILENAME_LYRICS_GENERATED = "lyric"
 FILE_INDEX = 0
 FORMAT_LYRICS_GENERATED = ".txt"
 MAX_FILE_INDEX = 10
-MAX_LENGTH_LINE = 8
+MAX_LENGTH_LINE = 6
 MIN_LENGTH_LINE = 5
 
